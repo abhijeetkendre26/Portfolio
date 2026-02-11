@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhi | Portfolio</title>
+    <style>
+        /* CSS Styles */
+        :root {
+            --primary-color: #2563eb;
+            --dark-color: #1e293b;
+            --light-color: #f8fafc;
+            --text-color: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--light-color);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: var(--dark-color);
+            color: white;
+            text-align: center;
+            padding: 4rem 2rem;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            margin-bottom: 0.5rem;
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        section {
+            margin-bottom: 3rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        h2 {
+            color: var(--dark-color);
+            border-bottom: 2px solid var(--primary-color);
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        /* Skills Tags */
+        .skills-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .skill-tag {
+            background-color: #e2e8f0;
+            color: var(--dark-color);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: bold;
+        }
+
+        /* Project Cards */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .project-card {
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 1.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+        }
+
+        .project-card h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: var(--dark-color);
+            color: white;
+            margin-top: 2rem;
+        }
+
+        a.button {
+            display: inline-block;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+            transition: background 0.3s;
+        }
+
+        a.button:hover {
+            background-color: #1d4ed8;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Hi, I'm Abhi</h1>
+        <p>Engineering Student | Software & Web Developer | Hackathon Enthusiast</p>
+        <a href="#contact" class="button">Get In Touch</a>
+    </header>
+
+    <div class="container">
+        
+        <section id="about">
+            <h2>About Me</h2>
+            <p>I am an engineering student with a strong foundation in C and C++ programming and a passion for building practical web applications. I thrive on tackling real-world problems through collaborative hackathons and independent development projects. Whether I'm designing a database or optimizing code, I love bridging the gap between complex engineering concepts and user-friendly software.</p>
+        </section>
+
+        <section id="skills">
+            <h2>Technical Skills</h2>
+            <div class="skills-container">
+                <span class="skill-tag">C / C++</span>
+                <span class="skill-tag">HTML5</span>
+                <span class="skill-tag">CSS3</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">Engineering Mathematics</span>
+                <span class="skill-tag">Web Hosting (GitHub Pages)</span>
+            </div>
+        </section>
+
+        <section id="projects">
+            <h2>Projects & Hackathons</h2>
+            <div class="projects-grid">
+                
+                <div class="project-card">
+                    <h3>PharmaGuardian (AI Pharmacist)</h3>
+                    <p><strong>Hackfusion 3.0 (Team PARRKOUR4.0)</strong></p>
+                    <p>An innovative healthcare solution developed during the Hackfusion 3.0 hackathon. [Add a sentence here about what specific problem the AI Pharmacist solves].</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>Nanolink</h3>
+                    <p><strong>URL Shortener App</strong></p>
+                    <p>Designed and developed a custom web application and interface to condense long URLs into clean, manageable links.</p>
+                </div>
+
+                <div class="project-card">
+                    <h3>CNG & EV Booking System</h3>
+                    <p><strong>Web Platform</strong></p>
+                    <p>A web-based booking system built to facilitate seamless reservations for alternative energy vehicles at charging and fueling stations.</p>
+                </div>
+
+            </div>
+        </section>
+
+        <section id="interests">
+            <h2>Beyond Coding</h2>
+            <p>When I'm not writing code or studying, I enjoy expressing my creativity through <strong>logo and graphic design</strong>. I also maintain focus and balance through practicing <strong>Yoga</strong> (Asana, Pranayama, and Meditation).</p>
+        </section>
+
+    </div>
+
+    <footer id="contact">
+        <h2>Let's Connect</h2>
+        <p>Feel free to reach out to me for collaborations or hackathon team-ups!</p>
+        <br>
+        <p>Email: yourmail@example.com | LinkedIn: linkedin.com/in/yourprofile</p>
+        <br>
+        <p>&copy; 2026 Abhi. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
