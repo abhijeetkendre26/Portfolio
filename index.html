@@ -1,202 +1,281 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abhi | Portfolio</title>
+    <title>Abhijeet Kendre | Portfolio</title>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['"Space Grotesk"', 'sans-serif'],
+                    },
+                    colors: {
+                        dark: '#0a0a0a',
+                        accent: '#3b82f6',
+                    }
+                }
+            }
+        }
+    </script>
+    
     <style>
-        /* CSS Styles */
-        :root {
-            --primary-color: #2563eb;
-            --dark-color: #1e293b;
-            --light-color: #f8fafc;
-            --text-color: #334155;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
         body {
-            background-color: var(--light-color);
-            color: var(--text-color);
-            line-height: 1.6;
+            background-color: #0a0a0a;
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+        
+        /* Animated Gradient Background Effect */
+        .bg-animated {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            background: radial-gradient(circle at 15% 50%, rgba(59, 130, 246, 0.12), transparent 25%),
+                        radial-gradient(circle at 85% 30%, rgba(147, 51, 234, 0.12), transparent 25%);
+            animation: backgroundShift 15s ease-in-out infinite alternate;
         }
 
-        header {
-            background-color: var(--dark-color);
-            color: white;
-            text-align: center;
-            padding: 4rem 2rem;
+        @keyframes backgroundShift {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1) translate(2%, 2%); }
+            100% { transform: scale(1) translate(-2%, -2%); }
         }
 
-        header h1 {
-            font-size: 3rem;
-            margin-bottom: 0.5rem;
+        /* Glassmorphism Styling for Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 1rem;
+            transition: all 0.3s ease;
         }
 
-        header p {
-            font-size: 1.2rem;
-            color: #cbd5e1;
-            margin-bottom: 1.5rem;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        section {
-            margin-bottom: 3rem;
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        h2 {
-            color: var(--dark-color);
-            border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 0.5rem;
-            margin-bottom: 1.5rem;
-            display: inline-block;
-        }
-
-        /* Skills Tags */
-        .skills-container {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .skill-tag {
-            background-color: #e2e8f0;
-            color: var(--dark-color);
-            padding: 8px 16px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-
-        /* Project Cards */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .project-card {
-            border: 1px solid #e2e8f0;
-            border-radius: 6px;
-            padding: 1.5rem;
-            transition: transform 0.2s ease;
-        }
-
-        .project-card:hover {
+        .glass-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.2);
+            border-color: rgba(59, 130, 246, 0.4);
         }
 
-        .project-card h3 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
+        /* Text Gradients */
+        .text-gradient {
+            background: linear-gradient(to right, #3b82f6, #9333ea);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
         }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: var(--dark-color);
-            color: white;
-            margin-top: 2rem;
+        
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
         }
-
-        a.button {
-            display: inline-block;
-            background-color: var(--primary-color);
-            color: white;
-            padding: 10px 20px;
-            text-decoration: none;
-            border-radius: 5px;
-            margin-top: 10px;
-            transition: background 0.3s;
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
         }
-
-        a.button:hover {
-            background-color: #1d4ed8;
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
         }
     </style>
 </head>
-<body>
+<body class="antialiased selection:bg-accent selection:text-white">
 
-    <header>
-        <h1>Hi, I'm Abhi</h1>
-        <p>Engineering Student | Software & Web Developer | Hackathon Enthusiast</p>
-        <a href="#contact" class="button">Get In Touch</a>
-    </header>
+    <div class="bg-animated"></div>
 
-    <div class="container">
+    <nav class="fixed w-full z-50 top-0 transition-all duration-300 backdrop-blur-md border-b border-white/5 bg-black/50">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold tracking-tighter">ABHI<span class="text-accent">.</span></a>
+            <div class="hidden md:flex gap-8 text-sm font-medium text-gray-400">
+                <a href="#home" class="hover:text-white transition-colors">Home</a>
+                <a href="#skills" class="hover:text-white transition-colors">Skills</a>
+                <a href="#projects" class="hover:text-white transition-colors">Work</a>
+                <a href="resume.pdf" class="hover:text-white transition-colors">CV</a>
+            </div>
+            <div class="md:hidden text-gray-400 hover:text-white cursor-pointer">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main class="max-w-6xl mx-auto px-6 pt-32 pb-20">
         
-        <section id="about">
-            <h2>About Me</h2>
-            <p>I am an engineering student with a strong foundation in C and C++ programming and a passion for building practical web applications. I thrive on tackling real-world problems through collaborative hackathons and independent development projects. Whether I'm designing a database or optimizing code, I love bridging the gap between complex engineering concepts and user-friendly software.</p>
-        </section>
-
-        <section id="skills">
-            <h2>Technical Skills</h2>
-            <div class="skills-container">
-                <span class="skill-tag">C / C++</span>
-                <span class="skill-tag">HTML5</span>
-                <span class="skill-tag">CSS3</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">Engineering Mathematics</span>
-                <span class="skill-tag">Web Hosting (GitHub Pages)</span>
-            </div>
-        </section>
-
-        <section id="projects">
-            <h2>Projects & Hackathons</h2>
-            <div class="projects-grid">
+        <section id="home" class="min-h-[80vh] flex flex-col-reverse md:flex-row items-center justify-between gap-12 py-12">
+            <div class="md:w-3/5">
+                <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-500/10 border border-green-500/20 text-green-400 text-sm font-medium mb-8" data-aos="fade-down">
+                    <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+                    Available for Internships
+                </div>
                 
-                <div class="project-card">
-                    <h3>PharmaGuardian (AI Pharmacist)</h3>
-                    <p><strong>Hackfusion 3.0 (Team PARRKOUR4.0)</strong></p>
-                    <p>An innovative healthcare solution developed during the Hackfusion 3.0 hackathon. [Add a sentence here about what specific problem the AI Pharmacist solves].</p>
+                <h1 class="text-5xl md:text-7xl font-extrabold mb-6 tracking-tight leading-tight" data-aos="fade-up" data-aos-delay="100">
+                    Abhijeet <br> <span class="text-gradient">Kendre.</span>
+                </h1>
+                
+                <p class="text-gray-400 text-lg md:text-xl max-w-xl mb-10 leading-relaxed" data-aos="fade-up" data-aos-delay="200">
+                    Engineering Student specializing in Software & Web Development. Building intelligent systems through clean code and innovative logic.
+                </p>
+                
+                <div class="flex flex-wrap gap-4" data-aos="fade-up" data-aos-delay="300">
+                    <a href="resume.pdf" class="px-6 py-3 bg-white text-black font-semibold rounded-lg hover:bg-gray-200 transition-colors">
+                        <i class="fa-solid fa-download mr-2"></i> Download CV
+                    </a>
+                    <a href="#projects" class="px-6 py-3 glass-card text-white font-semibold rounded-lg hover:bg-white/10 transition-colors border border-white/10">
+                        View Work
+                    </a>
                 </div>
-
-                <div class="project-card">
-                    <h3>Nanolink</h3>
-                    <p><strong>URL Shortener App</strong></p>
-                    <p>Designed and developed a custom web application and interface to condense long URLs into clean, manageable links.</p>
+            </div>
+            
+            <div class="md:w-2/5 flex justify-center" data-aos="zoom-in" data-aos-delay="200">
+                <div class="w-64 h-64 md:w-80 md:h-80 rounded-full border-2 border-white/10 overflow-hidden shadow-[0_0_40px_rgba(59,130,246,0.2)]">
+                    <img src="profile.jpg" alt="Abhijeet Kendre" class="w-full h-full object-cover bg-gray-900" onerror="this.src='https://via.placeholder.com/400x400/111111/3b82f6?text=Abhi'">
                 </div>
-
-                <div class="project-card">
-                    <h3>CNG & EV Booking System</h3>
-                    <p><strong>Web Platform</strong></p>
-                    <p>A web-based booking system built to facilitate seamless reservations for alternative energy vehicles at charging and fueling stations.</p>
-                </div>
-
             </div>
         </section>
 
-        <section id="interests">
-            <h2>Beyond Coding</h2>
-            <p>When I'm not writing code or studying, I enjoy expressing my creativity through <strong>logo and graphic design</strong>. I also maintain focus and balance through practicing <strong>Yoga</strong> (Asana, Pranayama, and Meditation).</p>
+        <section id="skills" class="py-20">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">Technical Stack</h2>
+            <p class="text-gray-400 mb-12" data-aos="fade-up" data-aos-delay="50">Core technologies and tools I work with.</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="glass-card p-8" data-aos="fade-up" data-aos-delay="100">
+                    <h3 class="text-xl font-semibold mb-6 text-white border-b border-white/10 pb-4">Languages</h3>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-center"><i class="fa-solid fa-code w-6 text-accent"></i> C / C++</li>
+                        <li class="flex items-center"><i class="fa-brands fa-js w-6 text-accent"></i> JavaScript</li>
+                        <li class="flex items-center"><i class="fa-brands fa-html5 w-6 text-accent"></i> HTML5 / CSS3</li>
+                    </ul>
+                </div>
+                
+                <div class="glass-card p-8" data-aos="fade-up" data-aos-delay="200">
+                    <h3 class="text-xl font-semibold mb-6 text-white border-b border-white/10 pb-4">Frontend & Core</h3>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-center"><i class="fa-solid fa-laptop-code w-6 text-accent"></i> Tailwind CSS</li>
+                        <li class="flex items-center"><i class="fa-solid fa-pen-nib w-6 text-accent"></i> UI & Logo Design</li>
+                        <li class="flex items-center"><i class="fa-solid fa-calculator w-6 text-accent"></i> Engineering Math</li>
+                    </ul>
+                </div>
+                
+                <div class="glass-card p-8" data-aos="fade-up" data-aos-delay="300">
+                    <h3 class="text-xl font-semibold mb-6 text-white border-b border-white/10 pb-4">Tools</h3>
+                    <ul class="space-y-4 text-gray-400">
+                        <li class="flex items-center"><i class="fa-brands fa-git-alt w-6 text-accent"></i> Git & GitHub</li>
+                        <li class="flex items-center"><i class="fa-solid fa-server w-6 text-accent"></i> GitHub Pages</li>
+                        <li class="flex items-center"><i class="fa-solid fa-code-branch w-6 text-accent"></i> VS Code</li>
+                    </ul>
+                </div>
+            </div>
         </section>
 
-    </div>
+        <section id="projects" class="py-20">
+            <h2 class="text-3xl md:text-4xl font-bold mb-4" data-aos="fade-up">Featured Work</h2>
+            <p class="text-gray-400 mb-12" data-aos="fade-up" data-aos-delay="50">Core projects and hackathon experiences.</p>
+            
+            <div class="space-y-6">
+                <div class="glass-card p-8 group cursor-pointer" data-aos="fade-up" data-aos-delay="100">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <p class="text-accent text-sm font-semibold mb-2 tracking-wider uppercase">Hackfusion 3.0</p>
+                            <h3 class="text-2xl font-bold mb-3 group-hover:text-accent transition-colors">PharmaGuardian (AI Pharmacist)</h3>
+                            <p class="text-gray-400 max-w-3xl">Brainstormed and designed a healthcare solution during the Hackfusion 3.0 hackathon with Team PARRKOUR4.0 to address real-world pharmacy challenges.</p>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-2xl text-gray-600 group-hover:text-white transition-colors transform group-hover:-rotate-45 duration-300"></i>
+                    </div>
+                </div>
 
-    <footer id="contact">
-        <h2>Let's Connect</h2>
-        <p>Feel free to reach out to me for collaborations or hackathon team-ups!</p>
-        <br>
-        <p>Email: yourmail@example.com | LinkedIn: linkedin.com/in/yourprofile</p>
-        <br>
-        <p>&copy; 2026 Abhi. All rights reserved.</p>
-    </footer>
+                <div class="glass-card p-8 group cursor-pointer" data-aos="fade-up" data-aos-delay="200">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <p class="text-accent text-sm font-semibold mb-2 tracking-wider uppercase">Web App</p>
+                            <h3 class="text-2xl font-bold mb-3 group-hover:text-accent transition-colors">Nanolink URL Shortener</h3>
+                            <p class="text-gray-400 max-w-3xl">A custom-built application and website designed to securely condense long URLs into clean, easily shareable links.</p>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-2xl text-gray-600 group-hover:text-white transition-colors transform group-hover:-rotate-45 duration-300"></i>
+                    </div>
+                </div>
 
+                <div class="glass-card p-8 group cursor-pointer" data-aos="fade-up" data-aos-delay="300">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+                        <div>
+                            <p class="text-accent text-sm font-semibold mb-2 tracking-wider uppercase">Web Platform</p>
+                            <h3 class="text-2xl font-bold mb-3 group-hover:text-accent transition-colors">CNG & EV Booking System</h3>
+                            <p class="text-gray-400 max-w-3xl">Engineered a seamless online reservation platform catering specifically to alternative energy vehicles at local charging and fueling stations.</p>
+                        </div>
+                        <i class="fa-solid fa-arrow-right text-2xl text-gray-600 group-hover:text-white transition-colors transform group-hover:-rotate-45 duration-300"></i>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <footer id="contact" class="py-20 mt-10 border-t border-white/10">
+            <div class="flex flex-col md:flex-row justify-between items-start gap-12">
+                <div class="md:w-1/2" data-aos="fade-right">
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Let's build <br><span class="text-gradient">Together.</span></h2>
+                    <p class="text-gray-400 mb-8 max-w-md">Currently looking for new opportunities and exciting hackathons. My inbox is always open.</p>
+                </div>
+                
+                <div class="md:w-1/2 flex flex-col gap-5" data-aos="fade-left">
+                    <a href="mailto:theabhijeetkendre@gmail.com" class="glass-card p-4 flex items-center gap-4 hover:bg-white/5 transition-colors">
+                        <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                            <i class="fa-solid fa-envelope text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-400">Personal Email</p>
+                            <p class="font-medium">theabhijeetkendre@gmail.com</p>
+                        </div>
+                    </a>
+                    
+                    <a href="mailto:s25_kendre_abhijeet@mgmcen.ac.in" class="glass-card p-4 flex items-center gap-4 hover:bg-white/5 transition-colors">
+                        <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                            <i class="fa-solid fa-graduation-cap text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-400">College Email</p>
+                            <p class="font-medium">s25_kendre_abhijeet@mgmcen.ac.in</p>
+                        </div>
+                    </a>
+                    
+                    <a href="tel:+918605168653" class="glass-card p-4 flex items-center gap-4 hover:bg-white/5 transition-colors">
+                        <div class="w-12 h-12 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                            <i class="fa-solid fa-phone text-xl"></i>
+                        </div>
+                        <div>
+                            <p class="text-sm text-gray-400">Contact Number</p>
+                            <p class="font-medium">+91 8605168653</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            
+            <div class="mt-20 pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-gray-500">
+                <p class="font-bold tracking-widest text-white">ABHIJEET.</p>
+                <p>&copy; 2026 Abhijeet Kendre. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </main>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+        });
+    </script>
 </body>
 </html>
+
